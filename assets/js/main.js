@@ -178,14 +178,22 @@
 
 						var top, bottom, mode;
 
-					// Use main <img>'s src as this spotlight's background on demand.
+					// Use the browser-selected image source as this spotlight's background on demand.
 						setBackground = function() {
+
+							var image, source;
 
 							if ($this.data('background-loaded'))
 								return;
 
+							image = $this.find('.image.main picture img, .image.main > img').get(0);
+							source = image ? (image.currentSrc || image.getAttribute('src')) : null;
+
+							if (!source)
+								return;
+
 							$this
-								.css('background-image', 'url("' + $this.find('.image.main > img').attr('src') + '")')
+								.css('background-image', 'url("' + source + '")')
 								.data('background-loaded', true);
 
 						};

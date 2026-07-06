@@ -2531,6 +2531,10 @@ input, select, textarea {
 			display: block;
 		}
 
+		.image picture {
+			display: block;
+		}
+
 		.image.left {
 			float: left;
 			margin: 0 1.5em 1em 0;
@@ -2558,6 +2562,10 @@ input, select, textarea {
 		}
 
 			.image.fit img {
+				width: 100%;
+			}
+
+			.image.fit picture {
 				width: 100%;
 			}
 
@@ -3392,7 +3400,7 @@ input, select, textarea {
 	#banner {
 		background-attachment: fixed;
 		background-color: #272833;
-		background-image: url("../../images/banner.jpg");
+		background-image: url("../../images/banner.webp");
 		background-position: center center;
 		background-size: cover;
 		box-shadow: 0 0.25em 0.5em 0 rgba(0, 0, 0, 0.25);
@@ -4056,10 +4064,19 @@ input, select, textarea {
 		justify-content: center;
 	}
 
+		#banner .content .image picture {
+			border-radius: 100%;
+			display: block;
+			height: 100%;
+			overflow: hidden;
+			width: 100%;
+		}
+
 		#banner .content .image img {
 			height: 100%;
 			object-fit: cover;
 			object-position: center center;
+			width: 100%;
 		}
 
 	#about {
@@ -4073,6 +4090,183 @@ input, select, textarea {
 	.about-copy p:last-child,
 	.spotlight-list p:last-child {
 		margin-bottom: 0;
+	}
+
+	@media screen and (max-width: 980px) {
+
+		#header {
+			display: none;
+		}
+
+		#page-wrapper {
+			-moz-backface-visibility: hidden;
+			-webkit-backface-visibility: hidden;
+			-ms-backface-visibility: hidden;
+			backface-visibility: hidden;
+			-moz-transition: -moz-transform 0.5s ease;
+			-webkit-transition: -webkit-transform 0.5s ease;
+			-ms-transition: -ms-transform 0.5s ease;
+			transition: transform 0.5s ease;
+			padding-bottom: 1px;
+			padding-top: 44px !important;
+		}
+
+		body.landing #page-wrapper {
+			padding-top: 44px !important;
+		}
+
+		#titleBar {
+			-moz-backface-visibility: hidden;
+			-webkit-backface-visibility: hidden;
+			-ms-backface-visibility: hidden;
+			backface-visibility: hidden;
+			-moz-transition: -moz-transform 0.5s ease;
+			-webkit-transition: -webkit-transform 0.5s ease;
+			-ms-transition: -ms-transform 0.5s ease;
+			transition: transform 0.5s ease;
+			background: #272833;
+			box-shadow: 0 0.125em 0.125em 0 rgba(0, 0, 0, 0.125);
+			display: block;
+			height: 44px;
+			left: 0;
+			position: fixed;
+			top: 0;
+			width: 100%;
+			z-index: 10001;
+		}
+
+			#titleBar .title {
+				color: #ffffff;
+				display: block;
+				font-weight: 300;
+				height: 44px;
+				line-height: 44px;
+				text-align: center;
+			}
+
+				#titleBar .title a {
+					border: 0;
+					color: inherit;
+				}
+
+			#titleBar .toggle {
+				border: 0;
+				height: 60px;
+				left: 0;
+				outline: 0;
+				position: absolute;
+				text-decoration: none;
+				top: 0;
+				width: 90px;
+			}
+
+				#titleBar .toggle:before {
+					-moz-osx-font-smoothing: grayscale;
+					-webkit-font-smoothing: antialiased;
+					background: #e44c65;
+					color: rgba(255, 255, 255, 0.5);
+					content: '\f0c9';
+					display: block;
+					font-family: 'Font Awesome 5 Free';
+					font-size: 18px;
+					font-style: normal;
+					font-variant: normal;
+					font-weight: 900;
+					height: 44px;
+					left: 0;
+					line-height: 44px;
+					position: absolute;
+					text-align: center;
+					text-rendering: auto;
+					text-transform: none !important;
+					top: 0;
+					width: 54px;
+				}
+
+		#navPanel {
+			-moz-backface-visibility: hidden;
+			-webkit-backface-visibility: hidden;
+			-ms-backface-visibility: hidden;
+			backface-visibility: hidden;
+			-moz-transform: translateX(-275px);
+			-webkit-transform: translateX(-275px);
+			-ms-transform: translateX(-275px);
+			transform: translateX(-275px);
+			-moz-transition: -moz-transform 0.5s ease;
+			-webkit-transition: -webkit-transform 0.5s ease;
+			-ms-transition: -ms-transform 0.5s ease;
+			transition: transform 0.5s ease;
+			background: #181920;
+			display: block;
+			height: 100%;
+			left: 0;
+			overflow-y: auto;
+			padding: 0.75em 1.25em;
+			position: fixed;
+			top: 0;
+			width: 275px;
+			z-index: 10002;
+		}
+
+			#navPanel .link {
+				border: 0;
+				border-top: solid 1px rgba(255, 255, 255, 0.05);
+				color: rgba(255, 255, 255, 0.75);
+				display: block;
+				height: 3em;
+				line-height: 3em;
+				text-decoration: none;
+			}
+
+				#navPanel .link:first-child {
+					border-top: 0;
+				}
+
+				#navPanel .link.depth-0 {
+					color: #ffffff;
+					font-weight: 300;
+				}
+
+				#navPanel .link .indent-1 {
+					display: inline-block;
+					width: 1.25em;
+				}
+
+				#navPanel .link .indent-2 {
+					display: inline-block;
+					width: 2.5em;
+				}
+
+				#navPanel .link .indent-3 {
+					display: inline-block;
+					width: 3.75em;
+				}
+
+				#navPanel .link .indent-4 {
+					display: inline-block;
+					width: 5em;
+				}
+
+				#navPanel .link .indent-5 {
+					display: inline-block;
+					width: 6.25em;
+				}
+
+		body.navPanel-visible #page-wrapper,
+		body.navPanel-visible #titleBar {
+			-moz-transform: translateX(275px);
+			-webkit-transform: translateX(275px);
+			-ms-transform: translateX(275px);
+			transform: translateX(275px);
+		}
+
+		body.navPanel-visible #navPanel {
+			-moz-transform: translateX(0);
+			-webkit-transform: translateX(0);
+			-ms-transform: translateX(0);
+			transform: translateX(0);
+		}
+
 	}
 
 	.profile-spotlight .content {
