@@ -221,6 +221,8 @@
 
 						}
 
+						setBackground();
+
 					// Add scrollex.
 						$this.scrollex({
 							mode:		mode,
