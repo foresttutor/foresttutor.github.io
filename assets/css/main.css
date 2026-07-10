@@ -4296,6 +4296,7 @@ input, select, textarea {
 	@media screen and (min-width: 981px) {
 
 		#about.spotlight.bottom .content {
+			padding-top: 6.1em;
 			padding-bottom: 4.75em;
 		}
 
