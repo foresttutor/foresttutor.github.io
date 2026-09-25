@@ -56,19 +56,20 @@
 
 		}
 
-		$body.on('click', '#nav a[href^="#"], #navPanel a[href^="#"], a.scrolly[href^="#"]', function(event) {
+		function handleSmoothLink(event) {
 
-			var hash = $(this).attr('href'),
-				$panel = $('#navPanel');
+			var hash = $(this).attr('href');
 
 			if (scrollToHash(hash, 1000)) {
 				event.preventDefault();
 
-				if ($panel.length && $panel._hide)
-					$panel._hide();
+				if ($navPanel && $navPanel.length && $navPanel._hide)
+					$navPanel._hide();
 			}
 
-		});
+		}
+
+		$body.on('click', '#nav a[href^="#"], a.scrolly[href^="#"]', handleSmoothLink);
 
 	// Nav.
 
@@ -82,7 +83,7 @@
 				.appendTo($body);
 
 		// Panel.
-			$(
+			var $navPanel = $(
 				'<div id="navPanel">' +
 					'<nav>' +
 						$('#nav').navList() +
@@ -100,6 +101,8 @@
 					target: $body,
 					visibleClass: 'navPanel-visible'
 				});
+
+			$navPanel.on('click', 'a[href^="#"]', handleSmoothLink);
 
 	// Parallax.
 	// Disabled on IE (choppy scrolling) and mobile platforms (poor performance).
